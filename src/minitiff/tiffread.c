@@ -256,7 +256,7 @@ void minitiff_read_info(struct minitiff_info *info_ptr, FILE *stream)
             goto err_read;
         tag_id = getter.get_ushort(buf);
         tag_type = getter.get_ushort(buf + 2);
-        count = cast_ulong_to_size(info_ptr, getter.get_ulong(buf + 4));
+        count = cast_ulong_to_size(info_ptr, get_ulong_m(buf + 4));
         if (count == 0)
             goto err_unsupported;
         switch (tag_id)
